@@ -19,20 +19,28 @@ router.post('/insertDining', (req, res) => {
 	return res.status(200).json({ insertDiningSuccess : true });
 })
 
-router.post('/getDining', (req, res) => {
+router.post('/getOneDining', (req, res) => {
 	const name = req.body.diningOption;
 
 	DiningOption.findOne({ name: name }, (err, DiningOption) => {
-    if (err) return res.json({ getDiningSuccess: false }, err);
+    if (err) return res.json({ getOneDiningSuccess: false }, err);
     if (!DiningOption) return res.json({
-      getDiningSuccess: false,
+      getOneDiningSuccess: false,
       message: "Error : diningOptions.js(/getOne, cannot get diningOption)"
     });
 
     return res.status(200).json({
+			getOneDiningSuccess : true,
       name : DiningOption.name
     });
   })
+})
+
+router.get('/getAllDining', (req, res) => {
+	DiningOption.find({}, (err, docs) => {
+		if(err) return res.json({ getAllDiningSuccess : false, err });
+		return res.status(200).json(docs);
+	})
 })
 
 router.get('/deleteDining', (req,res) => {

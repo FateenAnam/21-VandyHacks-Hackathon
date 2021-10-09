@@ -1,0 +1,30 @@
+.menu {
+	height : 120px;
+	padding : 0 7vw;
+	border-bottom : solid 1px #e8e8e8;
+	box-shadow : 0 0 30px #f3f1f1;
+	background-color : white;
+	display: flex;
+	z-index: 5;
+}
+
+.menu_content {
+	width : 1000px;
+	height : 100%;
+	padding-left: 100px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+
+.menu_logo {
+	float : left;
+	width : 120px;
+	height: 120px;
+	background: url('https://vandyhacks.org/assets/logo.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	flex-grow: 0;
+}

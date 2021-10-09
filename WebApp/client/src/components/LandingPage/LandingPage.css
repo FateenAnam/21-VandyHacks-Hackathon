@@ -1,0 +1,33 @@
+.left_container {
+	height : 90%;
+	width : 49.5%;
+	padding : 0px 40px;
+	float : left;
+}
+
+.right_container {
+	height : 90%;
+	width : 49.5%;
+	padding : 0px 40px;
+	float : right;
+}
+
+.dining_info {
+	width : 400px;
+}
+
+.rating_and_waitlist {
+	display : flex;
+	flex-direction : row;
+}
+
+.rating {
+	display : flex;
+	flex-direction: column;
+}
+
+.waitlist {
+	margin-left: 40px;
+	display : flex;
+	flex-direction: column;
+}
