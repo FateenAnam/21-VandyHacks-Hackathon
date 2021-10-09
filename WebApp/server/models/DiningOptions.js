@@ -3,6 +3,12 @@ const mongoose = require('mongoose');
 const diningSchema = mongoose.Schema({
 	name : {
 		type : String
+	},
+	meal : {
+		type : String
+	},
+	menu : {
+		type : Array
 	}
 });
 

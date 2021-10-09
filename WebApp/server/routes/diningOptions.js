@@ -2,12 +2,17 @@ const express = require('express');
 const router = express.Router();
 const { DiningOption } = require('../models/DiningOptions');
 
+const locationJSON = require('../../../DiningLocations.json');
+const locations = JSON.parse(locationJSON);
+console.log(locations);
+
 //============================================
 //      	API Calls - Dining Options
 //============================================
 
 router.post('/insertDining', (req, res) => {
-	// Get name of the DiningOptions from Charlie
+	const locations = JSON.parse(locationJSON);
+
 	let optionBody = {
 		name : req.body.name
 	}

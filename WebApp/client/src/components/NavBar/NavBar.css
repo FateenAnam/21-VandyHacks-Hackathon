@@ -21,7 +21,7 @@
 	float : left;
 	width : 120px;
 	height: 120px;
-	background: url('https://vandyhacks.org/assets/logo.png') no-repeat center center fixed;
+	background: url('../../img/VandyLogo.png') no-repeat center center fixed;
 	-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

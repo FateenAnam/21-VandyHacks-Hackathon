@@ -6,7 +6,6 @@ from datetime import date, datetime
 from time import sleep
 import random
 from webdriver_manager.chrome import ChromeDriverManager
-import pymongo
 import json
 
 def scrapeMenus():
@@ -19,7 +18,6 @@ def scrapeMenus():
     sleep(5)
     arr = []
     locations = ['2301', 'e-bronson-ingram-dining-hall', 'kissam-dining', 'rand', 'commons-dining', 'zeppos']
-    # locations = ['e-bronson-ingram-dining-hall']
     meals = ['breakfast', 'brunch', 'lunch', 'dinner']
     for location in locations:
         link = baseURL + location + '/'
@@ -61,9 +59,7 @@ def scrapeMenus():
 #                 file.write('\n')
 #     file.close()
 
-
+file = open('DiningLocations.json', 'w')
 myArr = json.dumps(scrapeMenus())
 
-client = pymongo.MongoClient()
-
-#Create POST request to your api w json object and 
+json.dump(myArr, file)
