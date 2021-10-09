@@ -1,0 +1,21 @@
+{
+  "name": "21_hackathon",
+  "version": "1.0.0",
+  "description": "This project is for 2021 VandyHacks Hackathon. It is designed to provide real-time feedback on dining options on campus and show how many people are in line.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "backend": "nodemon server/index.js"
+  },
+  "author": "Arthur Sung, Charlie Fruitman, Fateen Rafid",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10"
+  }
+}
