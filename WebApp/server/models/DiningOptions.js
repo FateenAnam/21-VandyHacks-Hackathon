@@ -6,5 +6,5 @@ const diningSchema = mongoose.Schema({
 	}
 });
 
-const DiningOption = mongoose.model('DiningOptions', diningSchema);
+const DiningOption = mongoose.model('diningoptions', diningSchema);
 module.exports = { DiningOption };

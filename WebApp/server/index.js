@@ -22,4 +22,5 @@ mongoose.connect(config.mongoURI)
 //=================================
 //        REST API Calls
 //=================================
-app.use('/api/diningOptions', require('./routes/diningOptions'));
+app.use('/api/DiningOptions', require('./routes/diningOptions'));
+app.use('/api/Reviews', require('./routes/reviews'));
