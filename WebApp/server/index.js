@@ -24,3 +24,4 @@ mongoose.connect(config.mongoURI)
 //=================================
 app.use('/api/DiningOptions', require('./routes/diningOptions'));
 app.use('/api/Reviews', require('./routes/reviews'));
+app.use('/api/Waitlines', require('./routes/waitlines'));

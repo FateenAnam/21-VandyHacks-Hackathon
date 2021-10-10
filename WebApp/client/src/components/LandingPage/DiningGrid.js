@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Col, Image, Typography, Rate, Button } from 'antd';
 import Axios from 'axios';
+import Waitlist from './Waitlist';
 import Commons from '../../img/Commons.jpg';
 import TwoThreeOOne from '../../img/2301.jpg';
 import EBI from '../../img/EBI.jpg';
@@ -11,7 +12,7 @@ import Zeppos from '../../img/Zeppos.jpg';
 const { Title, Text } = Typography;
 
 function DiningGrid(props) {
-	const [Rating, setRating] = useState(0.0)
+	const [Rating, setRating] = useState(0.0);
 
 	useEffect(() => {
 		getAverageRating();
@@ -37,14 +38,6 @@ function DiningGrid(props) {
 
 		setRating(0.0);
 		return true;
-	}
-
-	const onClickHandler = () => {
-		props.history.push({
-			pathname : '/reviewDetail',
-			name : props.name,
-			rating : Rating
-		})
 	}
 
 	return (
@@ -91,12 +84,9 @@ function DiningGrid(props) {
 							<Text strong> Current Rating : {Rating.toFixed(2)}</Text>
 							<Rate disabled allowHalf defaultValue={0} value={Math.round(Rating / 2.0)} />
 						</div>
-						<div className='waitlist'>
-							<Text strong style={{ marginBottom: '5px' }}> Waitlist Size : {0} </Text>
-							<Button onClick={onClickHandler} type="primary">
-								See Reviews!
-							</Button>
-						</div>
+						<Waitlist 
+							name={props.option.name}
+							rating={Rating}/>
 					</div>
 				</div>
 			}

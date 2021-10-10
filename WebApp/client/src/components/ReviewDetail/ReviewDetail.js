@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { Col, Image, Typography, Rate, Divider } from 'antd';
 import ReviewGrid from './ReviewGrid';
+import DetailWaitlist from './DetailWaitlist';
 import Commons from '../../img/Commons.jpg';
 import TwoThreeOOne from '../../img/2301.jpg';
 import EBI from '../../img/EBI.jpg';
@@ -72,9 +73,8 @@ function ReviewDetail(props) {
 								<Rate disabled allowHalf defaultValue={0} value={Math.round(rating / 2.0)} />
 							</div>
 							<br />
-							<div >
-								<Title level={3} > Waitlist Size : {0} </Title>
-							</div>
+							<DetailWaitlist 
+								name={props.location.name}/>
 						</div>
 					</div>
 				</Col>
