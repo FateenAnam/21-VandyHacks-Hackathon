@@ -1,0 +1,43 @@
+.review_container {
+	min-height: 300px;
+  width: 60vw;
+  margin: 30px 0px;
+  padding-top: 20px;
+  background-color: rgba(255, 255, 255, 0.93);
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.dining_info_review {
+	width: 430px;
+	display: flex;
+	flex-direction: column;
+}
+
+.rating_and_waitlist_review {
+	display : flex;
+	flex-direction : column;
+}
+
+.reviews {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.avatar {
+	margin : 20px;
+}
+
+.reviewgrid_rating_comment {
+	width : 60%;
+	height : 100%;
+	margin-top : 15px;
+	margin-left : 70px;
+	display: flex;
+	flex-direction: column;
+}

@@ -1,6 +1,6 @@
 .menu {
-	height : 120px;
-	padding : 0 7vw;
+	height : 130px;
+	padding : 0 15vw;
 	border-bottom : solid 1px #e8e8e8;
 	box-shadow : 0 0 30px #f3f1f1;
 	background-color : white;
@@ -8,23 +8,18 @@
 	z-index: 5;
 }
 
+.menu_logo {
+	float : left;
+	width : 130px;
+	height: 130px;
+	padding-top: 25px;
+}
+
 .menu_content {
 	width : 1000px;
 	height : 100%;
-	padding-left: 100px;
+	padding-left: 70px;
 	text-align: center;
 	display: flex;
 	align-items: center;
-}
-
-.menu_logo {
-	float : left;
-	width : 120px;
-	height: 120px;
-	background: url('../../img/VandyLogo.png') no-repeat center center fixed;
-	-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-	flex-grow: 0;
 }

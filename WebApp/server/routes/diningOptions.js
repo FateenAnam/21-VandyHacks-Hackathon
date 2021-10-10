@@ -3,55 +3,103 @@ const router = express.Router();
 const { DiningOption } = require('../models/DiningOptions');
 
 const locationJSON = require('../../../DiningLocations.json');
-const locations = JSON.parse(locationJSON);
-console.log(locations);
 
 //============================================
 //      	API Calls - Dining Options
 //============================================
 
-router.post('/insertDining', (req, res) => {
-	const locations = JSON.parse(locationJSON);
+router.get('/insertDining', (req, res) => {
+	const options = JSON.parse(locationJSON);
 
-	let optionBody = {
-		name : req.body.name
-	}
-	const diningOption = new DiningOption(optionBody);
+	options.forEach(option => {
+		let body;
 
-	diningOption.save((err, doc) => {
-		if(err) return res.json({ insertDiningSuccess : false });
+		if (option.location === 'e-bronson-ingram-dining-hall') {
+			body = {
+				name: "EBI",
+				meal: option.meal,
+				menu: option.menu
+			}
+		} else if (option.location === 'kissam-dining') {
+			body = {
+				name: "Kissam",
+				meal: option.meal,
+				menu: option.menu
+			}
+		} else if (option.location === 'rand') {
+			body = {
+				name: "Rand",
+				meal: option.meal,
+				menu: option.menu
+			}
+		} else if (option.location === 'zeppos') {
+			body = {
+				name: "Zeppos",
+				meal: option.meal,
+				menu: option.menu
+			}
+		} else if (option.location === 'commons-dining') {
+			body = {
+				name: "Commons",
+				meal: option.meal,
+				menu: option.menu
+			}
+		} else {
+			body = {
+				name: "2301",
+				meal: option.meal,
+				menu: option.menu
+			}
+		}
+		const diningOption = new DiningOption(body);
+
+		diningOption.save((err, doc) => {
+			if (err) return res.json({ insertDiningSuccess: false });
+		})
 	})
-	return res.status(200).json({ insertDiningSuccess : true });
+
+	return res.status(200).json({ insertDiningSuccess: true });
 })
 
 router.post('/getOneDining', (req, res) => {
 	const name = req.body.diningOption;
+	const getMeal = () => {
+		var today = new Date();
+		var time = today.getHours();
 
-	DiningOption.findOne({ name: name }, (err, DiningOption) => {
-    if (err) return res.json({ getOneDiningSuccess: false }, err);
-    if (!DiningOption) return res.json({
-      getOneDiningSuccess: false,
-      message: "Error : diningOptions.js(/getOne, cannot get diningOption)"
-    });
+		if(time > 7 && time < 10) return 'breakfast';
+		else if(time > 11 && time < 15) return 'lunch';
+		else if(time > 16 && 20) return 'dinner';
+		else return 'breakfast'
+	}
+	var mealChoice = getMeal();
 
-    return res.status(200).json({
-			getOneDiningSuccess : true,
-      name : DiningOption.name
-    });
-  })
+	DiningOption.findOne({ name: name, meal : mealChoice }, (err, DiningOption) => {
+		if (err) return res.json({ getOneDiningSuccess: false }, err);
+		if (!DiningOption) return res.json({
+			getOneDiningSuccess: false,
+			message: "Error : diningOptions.js(/getOne, cannot get diningOption)"
+		});
+
+		return res.status(200).json({
+			getOneDiningSuccess: true,
+			name: DiningOption.name,
+			menu: DiningOption.menu
+		});
+	})
 })
 
 router.get('/getAllDining', (req, res) => {
 	DiningOption.find({}, (err, docs) => {
-		if(err) return res.json({ getAllDiningSuccess : false, err });
+		if (err) return res.json({ getAllDiningSuccess: false, err });
 		return res.status(200).json(docs);
 	})
 })
 
-router.get('/deleteDining', (req,res) => {
+router.get('/deleteDining', (req, res) => {
 	DiningOption.deleteMany({}, (err, doc) => {
-    if (err) return res.json({ removeDiningSuccess: false, err });
-  });
+		if (err) return res.json({ removeDiningSuccess: false, err });
+	});
 	return res.status(200).json({ removeDiningSuccess: true });
 })
 

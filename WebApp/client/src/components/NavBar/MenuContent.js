@@ -9,11 +9,11 @@ function MenuContent(props) {
 	}
 
 	return (
-		<div style={{ display : 'flex', flexDirection : 'row' }}>
-			<Title style={{marginTop : '10px', marginBottom : '9px'}}>
+		<div style={{ display : 'flex', flexDirection : 'column' }}>
+			<Title style={{marginTop : '0px', marginBottom : '15px'}}>
 				Campus Dining Real-time Feedback 
 			</Title>
-			<Button type='primary' style={{ marginLeft : '40px', marginTop : '20px'}}
+			<Button type='primary' style={{ width: '200px', marginTop : '20px', margin: '0 auto'}}
 				onClick={onClickHandler}>
 				Create a New Review
 			</Button>

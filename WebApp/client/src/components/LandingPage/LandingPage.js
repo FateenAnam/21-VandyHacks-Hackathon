@@ -7,8 +7,18 @@ function LandingPage() {
 	const [DiningOptions, setDiningOptions] = useState([]);
 
 	useEffect(() => {
-		Axios.get('/api/DiningOptions/getAllDining')
-			.then(response => setDiningOptions(response.data));
+		const locations = ['EBI', '2301', 'Kissam', 'Commons', 'Zeppos', 'Rand']
+
+		locations.forEach(location => {
+			let body = {
+				diningOption : location
+			}
+
+			Axios.post('/api/DiningOptions/getOneDining', body)
+				.then(response => {
+					setDiningOptions(DiningOptions => [...DiningOptions, response.data])
+				});
+		})
 	}, [])
 
 	return (
