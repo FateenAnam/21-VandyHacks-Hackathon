@@ -60,7 +60,7 @@ def updateDB():
 
     filter = {'location' : "Commons"} 
     curLineNum = collection.find_one(filter)["linenum"]
-    newvalue = { "$set" : {'linenum' : curLineNum + 1}}
+    newvalue = { "$set" : {'linenum' : curLineNum - 1}}
     collection.update_one(filter, newvalue)
              
 # getData()  
