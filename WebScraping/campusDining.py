@@ -7,6 +7,8 @@ from time import sleep
 import random
 from webdriver_manager.chrome import ChromeDriverManager
 import json
+from unwantedWords import unwantedWords
+
 
 def scrapeMenus():
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -31,7 +33,8 @@ def scrapeMenus():
             foods = soup.find_all(class_='food-name')
             if (len(foods) > 0):
                 for food in foods:
-                    arr[len(arr) - 1]['menu'].append(food.text)
+                    if food.text not in unwantedWords:
+                        arr[len(arr) - 1]['menu'].append(food.text)
             n = random.randint(5, 15)
             sleep(n)
     driver.quit()
